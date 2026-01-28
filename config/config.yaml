@@ -95,12 +95,96 @@ rss:
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
-      # max_age_days: 7               # 示例：推送7天内的文章（更新较慢的博客）
+      max_age_days: 7               # 示例：推送7天内的文章（更新较慢的博客）
     
     - id: "yahoo-finance"
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
       enabled: false                  # 禁用
+    # ════════════════════════════════════
+    # 🧠 1. 全球顶级 AI 实验室 (官方源直连)
+    # ════════════════════════════════════
+    # OpenAI: 官网结构经常变，这是目前最稳定的 Research 订阅源
+    - id: "openai-research"
+      name: "OpenAI Research"
+      url: "https://openai.com/research/rss.xml"
+
+    # Microsoft Azure AI: 微软官方 AI 博客，非常稳定
+    - id: "microsoft-ai"
+      name: "Microsoft Azure AI"
+      url: "https://azure.microsoft.com/en-us/blog/topics/artificial-intelligence/feed/"
+
+    # Hugging Face: 开源模型的大本营，链接长期有效
+    - id: "huggingface"
+      name: "Hugging Face Blog"
+      url: "https://huggingface.co/blog/feed.xml"
+
+    # Google DeepMind: 谷歌 AI 核心，注意这是新版地址
+    - id: "google-deepmind"
+      name: "Google DeepMind"
+      url: "https://deepmind.google/blog/rss.xml"
+
+    # LangChain: 官方博客，Agent 开发者必读
+    - id: "langchain"
+      name: "LangChain Blog"
+      url: "https://blog.langchain.dev/rss/"
+
+    # ════════════════════════════════════
+    # 🌍 2. 国际硬核科技媒体 (筛选垂直分类)
+    # ════════════════════════════════════
+    # TechCrunch AI: 只订阅 AI 分类，排除其他杂音
+    - id: "techcrunch-ai"
+      name: "TechCrunch AI"
+      url: "https://techcrunch.com/category/artificial-intelligence/feed/"
+
+    # MIT Technology Review: 麻省理工科技评论，深度极高
+    - id: "mit-tech-review"
+      name: "MIT Technology Review"
+      url: "https://www.technologyreview.com/feed/"
+
+    # The Verge: 科技与生活，包含很多硬件评测
+    - id: "the-verge"
+      name: "The Verge"
+      url: "https://www.theverge.com/rss/index.xml"
+
+    # ════════════════════════════════════
+    # 💻 3. 个人博客与深度思考 (技术风向标)
+    # ════════════════════════════════════
+    # Simon Willison: 绝对的宝藏，LLM 安全与工程化
+    - id: "simon-willison"
+      name: "Simon Willison"
+      url: "https://simonwillison.net/atom/entries/"
+
+    # Lilian Weng (OpenAI): AI Agent 的“圣经”
+    - id: "lilian-weng"
+      name: "Lil'Log"
+      url: "https://lilianweng.github.io/index.xml"
+      max_age_days: 0  # 深度长文，不过滤
+
+    # Andrej Karpathy: AI 圈顶流，虽然更新慢但篇篇经典
+    - id: "karpathy"
+      name: "Andrej Karpathy"
+      url: "https://karpathy.github.io/feed.xml"
+      max_age_days: 0
+
+    # ════════════════════════════════════
+    # 🇨🇳 4. 国内仅存的“原生”高质量源
+    # ════════════════════════════════════
+    # Solidot: 奇客的资讯，非常老牌且硬核的 IT 新闻（原生支持 RSS）
+    - id: "solidot"
+      name: "Solidot"
+      url: "https://www.solidot.org/index.rss"
+
+    # InfoQ (国际版): 国内版屏蔽了 RSS，国际版更稳定且技术更前沿
+    - id: "infoq-en"
+      name: "InfoQ (AI & ML)"
+      url: "https://feed.infoq.com/ai-ml-data-eng/news"
+
+    # 少数派: 关注工具效率与 AI 应用落地（如 Mac mini 玩法）
+    - id: "sspai"
+      name: "少数派 sspai"
+      url: "https://sspai.com/feed"
+    
 
     # 自定义源示例
     # - id: "custom-feed"
