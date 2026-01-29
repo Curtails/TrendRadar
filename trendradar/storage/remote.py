@@ -99,7 +99,10 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         signature_version = 's3' if is_tencent_cos else 's3v4'
 
         s3_config = BotoConfig(
-            s3={"addressing_style": "virtual"},
+            s3={
+                "addressing_style": "path",
+                "payload_signing_enabled": False
+            },
             signature_version=signature_version,
         )
 
@@ -112,16 +115,9 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         if region:
             client_kwargs["region_name"] = region
 
-        self.s3_client = boto3.client(
-            "s3", 
-            **client_kwargs,
-            config=Config(
-                s3={
-                    "addressing_style": "path",
-                    "payload_signing_enabled": False
-                }
-            )
-        )
+        self.s3_client = boto3.client("s3", **client_kwargs)
+        
+        logger.info("[远程存储] S3 client 初始化完成")
 
         # 跟踪下载的文件（用于清理）
         self._downloaded_files: List[Path] = []
