@@ -99,10 +99,7 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         signature_version = 's3' if is_tencent_cos else 's3v4'
 
         s3_config = BotoConfig(
-            s3={
-                "addressing_style": "path",
-                "payload_signing_enabled": False
-            },
+            s3={"addressing_style": "virtual"},
             signature_version=signature_version,
         )
 
