@@ -112,7 +112,16 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
         if region:
             client_kwargs["region_name"] = region
 
-        self.s3_client = boto3.client("s3", **client_kwargs)
+        self.s3_client = boto3.client(
+            "s3", 
+            **client_kwargs,
+            config=Config(
+                s3={
+                    "addressing_style": "path",
+                    "payload_signing_enabled": False
+                }
+            )
+        )
 
         # 跟踪下载的文件（用于清理）
         self._downloaded_files: List[Path] = []
