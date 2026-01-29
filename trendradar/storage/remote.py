@@ -113,8 +113,6 @@ class RemoteStorageBackend(SQLiteStorageMixin, StorageBackend):
             client_kwargs["region_name"] = region
 
         self.s3_client = boto3.client("s3", **client_kwargs)
-        
-        logger.info("[远程存储] S3 client 初始化完成")
 
         # 跟踪下载的文件（用于清理）
         self._downloaded_files: List[Path] = []
